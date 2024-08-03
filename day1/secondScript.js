@@ -19,7 +19,4 @@ function changeColor() {
         div.appendChild(p);
     }
 
-
-
-
 }
