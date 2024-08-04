@@ -23,6 +23,15 @@ function sayHi() {
   dog.breed = "german shephard";
   console.log(dog.breed + " " + dog2.breed + " " + dog3.breed);
 
+  //object destructuring
+  //without destructuring
+  const dogBreed = dog.breed;
+  const dogAge = dog.age;
+  const dogName = dog.name;
+  
+  //with destructuring
+  const {dogsBreed, dogsAge, dogsName} = dog;
+
   // list
   console.log(hobbies[3]);
 
@@ -79,3 +88,5 @@ let fruits = ['apple', 'banana', 'cherry'];
 fruits.forEach(fruit => {
     console.log(fruit);
 });
+
+
