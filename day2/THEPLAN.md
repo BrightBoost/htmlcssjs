@@ -6,4 +6,4 @@
 12.30-13.30: lunchtime \
 13.30-14:00: Discuss exercises + Q&A + handout mini project \
 14.00-16.30: project time + prep presentation \
-16.30-17.30: present work in breakout rooms with all the students of your instructor \
+16.30-17.30: present work in breakout rooms with all the students of your instructor

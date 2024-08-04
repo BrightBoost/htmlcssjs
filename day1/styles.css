@@ -26,3 +26,7 @@ li.special {
 li.special.extra {
     background-color: green;
 }
+
+img {
+    float: right;
+}

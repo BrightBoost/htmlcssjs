@@ -10,4 +10,4 @@
 14.45-15.15: exercise + 10 minute break (jsExercises1.md) \
 15.15-16.00: Imke talking more JS \
 16.00-17.15: exercise JS (jsExercises2.md + miniProject) \
-17:15-17.30: temperature check (zoom reaction) + Q&A + the plan for tomorrow \
+17:15-17.30: temperature check (zoom reaction) + Q&A + the plan for tomorrow
