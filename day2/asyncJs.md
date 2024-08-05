@@ -1,13 +1,16 @@
 # Asynchronous Programming in JavaScript
 
-## 1. Introduction to Asynchronous Programming 
+## 1. Introduction to Asynchronous Programming
 
 ### Concepts Covered:
+
 - **Synchronous vs Asynchronous Code**:
+
   - **Synchronous Code**: Code is executed line by line. Each line waits for the previous one to complete.
   - **Asynchronous Code**: Code does not wait. Multiple operations can happen simultaneously, with results handled when ready.
 
 - **Blocking vs Non-blocking Operations**:
+
   - **Blocking**: Operations that block the execution of subsequent code until they complete.
   - **Non-blocking**: Operations that allow subsequent code to execute without waiting for the current operation to complete.
 
@@ -16,68 +19,75 @@
   - **Callbacks**: Functions passed as arguments to other functions, which are executed once the asynchronous operation completes.
 
 ### Demo:
+
 - Simple synchronous vs asynchronous examples using `setTimeout`.
 
 ```javascript
 // Synchronous Example
-console.log('Start');
-console.log('End');
+console.log("Start");
+console.log("End");
 
 // Asynchronous Example
-console.log('Start');
+console.log("Start");
 setTimeout(() => {
-    console.log('Async operation complete');
+  console.log("Async operation complete");
 }, 1000);
-console.log('End');
+console.log("End");
 ```
 
-## 2. Callbacks 
+## 2. Callbacks
 
 ### Concepts Covered:
+
 - **Definition and Use of Callbacks**:
+
   - A function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of action.
 
 - **Common Issues (Callback Hell)**:
   - Nesting multiple callbacks can lead to hard-to-read and maintain code, known as "callback hell".
 
 ### Demo:
+
 - Implementing a sequence of async operations using callbacks.
 
 ```javascript
 function firstOperation(callback) {
-    setTimeout(() => {
-        console.log('First Operation Complete');
-        callback();
-    }, 1000);
+  setTimeout(() => {
+    console.log("First Operation Complete");
+    callback();
+  }, 1000);
 }
 
 function secondOperation(callback) {
-    setTimeout(() => {
-        console.log('Second Operation Complete');
-        callback();
-    }, 1000);
+  setTimeout(() => {
+    console.log("Second Operation Complete");
+    callback();
+  }, 1000);
 }
 
 function thirdOperation() {
-    setTimeout(() => {
-        console.log('Third Operation Complete');
-    }, 1000);
+  setTimeout(() => {
+    console.log("Third Operation Complete");
+  }, 1000);
 }
 
 firstOperation(() => {
-    secondOperation(() => {
-        thirdOperation();
-    });
+  secondOperation(() => {
+    thirdOperation();
+  });
 });
 ```
 
-## 3. Promises 
+## 3. Promises
 
 ### Concepts Covered:
+
 - **Introduction to Promises**:
+
   - A Promise represents a value that may be available now, or in the future, or never.
 
 - **States of a Promise**:
+
   - **Pending**: Initial state, neither fulfilled nor rejected.
   - **Fulfilled**: Operation completed successfully.
   - **Rejected**: Operation failed.
@@ -88,51 +98,55 @@ firstOperation(() => {
   - **`.finally()`**: Executes regardless of the outcome.
 
 ### Demo:
+
 - Refactoring callback code to use Promises.
 
 ```javascript
 function firstOperation() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            console.log('First Operation Complete');
-            resolve();
-        }, 1000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("First Operation Complete");
+      resolve();
+    }, 1000);
+  });
 }
 
 function secondOperation() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            console.log('Second Operation Complete');
-            resolve();
-        }, 1000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Second Operation Complete");
+      resolve();
+    }, 1000);
+  });
 }
 
 function thirdOperation() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            console.log('Third Operation Complete');
-            resolve();
-        }, 1000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Third Operation Complete");
+      resolve();
+    }, 1000);
+  });
 }
 
 firstOperation()
-    .then(secondOperation)
-    .then(thirdOperation)
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+  .then(secondOperation)
+  .then(thirdOperation)
+  .catch((error) => {
+    console.error("Error:", error);
+  });
 ```
 
-## 4. Async/Await 
+## 4. Async/Await
 
 ### Concepts Covered:
+
 - **Syntactic Sugar over Promises**:
+
   - `async`/`await` makes asynchronous code look and behave like synchronous code, while still being asynchronous.
 
 - **Writing Cleaner Async Code with `async` and `await`**:
+
   - Use `async` to declare a function that returns a Promise.
   - Use `await` to pause the execution of an `async` function and wait for the Promise to resolve.
 
@@ -140,45 +154,77 @@ firstOperation()
   - Handle errors using `try`/`catch` blocks inside `async` functions.
 
 ### Demo:
+
 - Refactoring Promises code to use `async`/`await`.
 
 ```javascript
 async function performOperations() {
-    try {
-        await firstOperation();
-        await secondOperation();
-        await thirdOperation();
-    } catch (error) {
-        console.error('Error:', error);
-    }
+  try {
+    await firstOperation();
+    await secondOperation();
+    await thirdOperation();
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 performOperations();
 
 async function firstOperation() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            console.log('First Operation Complete');
-            resolve();
-        }, 1000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("First Operation Complete");
+      resolve();
+    }, 1000);
+  });
 }
 
 async function secondOperation() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            console.log('Second Operation Complete');
-            resolve();
-        }, 1000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Second Operation Complete");
+      resolve();
+    }, 1000);
+  });
 }
 
 async function thirdOperation() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            console.log('Third Operation Complete');
-            resolve();
-        }, 1000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Third Operation Complete");
+      resolve();
+    }, 1000);
+  });
 }
 ```
+
+# Hidden message
+
+<pre>
+                 .88888888:.
+                88888888.88888.
+              .8888888888888888.
+              888888888888888888
+              88' _`88'_  `88888
+              88 88 88 88  88888
+              88_88_::_88_:88888
+              88:::,::,:::::8888
+              88`:::::::::'`8888
+             .88  `::::'    8:88.
+            8888            `8:888.
+          .8888'             `888888.
+         .8888:..  .::.  ...:'8888888:.
+        .8888.'     :'     `'::`88:88888
+       .8888        '         `.888:8888.
+      888:8         .           888:88888
+    .888:88        .:           888:88888:
+    8888888.       ::           88:888888
+    `.::.888.      ::          .88888888
+   .::::::.888.    ::         :::`8888'.:.
+  ::::::::::.888   '         .::::::::::::
+  ::::::::::::.8    '      .:8::::::::::::.
+ .::::::::::::::.        .:888:::::::::::::
+ :::::::::::::::88:.__..:88888:::::::::::'
+  `'.:::::::::::88888888888.88:::::::::'
+        `':::_:' -- '' -'-' `':_::::'`
+</pre>
